@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aniztasunarekiko Arreta - Orientazio Tresna</title>
     <style>
-        /* CSS ETA ESTILOAK (Calibri eta UX garbia) */
         * {
             box-sizing: border-box;
             font-family: 'Calibri', 'Arial', sans-serif;
@@ -19,11 +18,8 @@
             font-size: 20px;
         }
 
-        h1, h2, h3 {
-            color: #2c3e50;
-        }
+        h1, h2, h3 { color: #2c3e50; }
 
-        /* Goiko barra */
         .navbar {
             background-color: #2c3e50;
             color: white;
@@ -52,7 +48,6 @@
             color: #1abc9c;
         }
 
-        /* Botoi orokorrak */
         .btn {
             font-size: 20px;
             padding: 12px 24px;
@@ -72,7 +67,6 @@
         .btn-warning { background-color: #f1c40f; color: #2c3e50; }
         .btn-warning:hover { background-color: #f39c12; }
 
-        /* Edukiontzi nagusiak */
         .container {
             max-width: 1000px;
             margin: 30px auto;
@@ -85,16 +79,8 @@
         .screen { display: none; }
         .screen.active { display: block; }
 
-        /* Formularioen eremuak */
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; }
 
         input[type="text"], input[type="date"], select, textarea {
             width: 100%;
@@ -102,22 +88,11 @@
             font-size: 20px;
             border: 2px solid #bdc3c7;
             border-radius: 5px;
-            font-family: 'Calibri', sans-serif;
         }
 
-        textarea {
-            resize: vertical;
-            height: 120px;
-        }
+        textarea { resize: vertical; height: 120px; }
+        .word-counter { text-align: right; font-size: 16px; color: #7f8c8d; margin-top: 5px; }
 
-        .word-counter {
-            text-align: right;
-            font-size: 16px;
-            color: #7f8c8d;
-            margin-top: 5px;
-        }
-
-        /* Checkbox taldeak */
         .checkbox-group {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -127,17 +102,9 @@
             border-radius: 5px;
         }
 
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .checkbox-item { display: flex; align-items: center; gap: 10px; }
+        .checkbox-item input { transform: scale(1.5); }
 
-        .checkbox-item input {
-            transform: scale(1.5);
-        }
-
-        /* Alerta gorria laguntza altuetan */
         .high-support-alert {
             border: 3px solid #e74c3c !important;
             background-color: #fdf2f2;
@@ -146,16 +113,7 @@
             margin-top: 10px;
         }
 
-        /* Zerrendak eta Filtroak */
-        .filters {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            background: #eee;
-            padding: 15px;
-            border-radius: 5px;
-        }
-
+        .filters { display: flex; gap: 15px; margin-bottom: 20px; background: #eee; padding: 15px; border-radius: 5px; }
         .record-card {
             background: #fdfdfd;
             border-left: 5px solid #3498db;
@@ -168,7 +126,6 @@
             align-items: center;
         }
 
-        /* Mezuen alertak */
         .toast {
             position: fixed;
             bottom: 20px;
@@ -182,7 +139,6 @@
             z-index: 2000;
         }
 
-        /* Txosten irteera */
         .report-output {
             background: #f9f9f9;
             border: 2px dashed #7f8c8d;
@@ -198,7 +154,7 @@
 
     <div class="navbar">
         <button class="btn btn-warning" onclick="goHome()">Hasiera</button>
-        <h1 id="app-title">Aniztasunarekiko Arreta Formularioa</h1>
+        <h1>Aniztasunarekiko Arreta</h1>
         <div style="display: flex; align-items: center;">
             <span class="user-greeting" id="user-display"></span>
             <button class="btn btn-danger" id="logout-btn" style="display:none;" onclick="logout()">Aldatu Erabiltzailea</button>
@@ -206,22 +162,20 @@
     </div>
 
     <div class="container">
-        
         <div id="screen-login" class="screen active">
             <h2>Ongi etorri Orientazio Aplikaziora</h2>
             <p style="font-size: 18px; color: #7f8c8d;">Datu guztiak zure gailuan bakarrik gordetzen dira modu pribatuan (LocalStorage).</p>
             <div class="form-group">
-                <label for="login-name">Orientatzailearen izena (aukeratu Nick bat sartzeko): *</label>
+                <label for="login-name">Orientatzailearen izena (Nick bat): *</label>
                 <input type="text" id="login-name" placeholder="Adibidez: miren_orientatzaile">
             </div>
             <button class="btn btn-primary" onclick="login()">Sartu</button>
         </div>
 
         <div id="screen-main" class="screen">
-            
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 15px;">
                 <h2>HPB/HBLP Erregistro Formularioa</h2>
-                <a href="#zerrenda-section" class="btn btn-warning" style="text-decoration: none;">Ikusi Erregistroen Zerrenda</a>
+                <a href="#zerrenda-section" class="btn btn-warning" style="text-decoration: none;">Ikusi Erregistroak</a>
             </div>
 
             <form id="case-form">
@@ -231,7 +185,7 @@
                         <input type="date" id="form-date" required>
                     </div>
                     <div class="form-group">
-                        <label>Profesionalaren izena:</label>
+                        <label>Profesionala:</label>
                         <input type="text" id="form-prof" readonly style="background: #eee;">
                     </div>
                 </div>
@@ -245,10 +199,10 @@
                         <label>Etapa / Maila: *</label>
                         <select id="form-stage" required>
                             <option value="">Hautatu bat...</option>
-                            <option value="Derrigorrezko Bigarren Hezkuntza (DBH)">Derrigorrezko Bigarren Hezkuntza (DBH)</option>
-                            <option value="Oinarrizko Lanbide Heziketa">Oinarrizko Lanbide Heziketa</option>
-                            <option value="Erdi-mailako Lanbide Heziketa">Erdi-mailako Lanbide Heziketa</option>
-                            <option value="Goi-mailako Lanbide Heziketa">Goi-mailako Lanbide Heziketa</option>
+                            <option value="Derrigorrezko Bigarren Hezkuntza (DBH)">DBH</option>
+                            <option value="Oinarrizko Lanbide Heziketa">Oinarrizko LH</option>
+                            <option value="Erdi-mailako Lanbide Heziketa">Erdi-mailako LH</option>
+                            <option value="Goi-mailako Lanbide Heziketa">Goi-mailako LH</option>
                             <option value="Batxilergoa">Batxilergoa</option>
                             <option value="Gela Egonkorra">Gela Egonkorra</option>
                             <option value="ZIG Gela">ZIG Gela</option>
@@ -277,7 +231,8 @@
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: #eef7fa; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
                     <div class="form-group">
                         <label>Premia nagusia: *</label>
-                        <select id="form-p1" required></select> </div>
+                        <select id="form-p1" required></select>
+                    </div>
                     <div class="form-group">
                         <label>Bigarren mailako premia:</label>
                         <select id="form-p2"></select>
@@ -285,7 +240,6 @@
                 </div>
 
                 <h3>Kasuaren Azterketa</h3>
-                
                 <div class="form-group">
                     <label>Laguntza maila?</label>
                     <select id="form-support" onchange="checkSupportLevel()">
@@ -295,7 +249,7 @@
                         <option value="oso handia">Oso handia ⚠️</option>
                     </select>
                     <div id="support-alert" class="high-support-alert" style="display:none; color: #c0392b; font-weight: bold;">
-                        Arreta: Laguntza maila handia/oso handia denez, neurri bereziak eta baliabide espezifikoak ziurtatu behar dira.
+                        ⚠️ Arreta: Laguntza maila altua. Baliabide espezifikoak bermatu behar dira.
                     </div>
                 </div>
 
@@ -318,7 +272,6 @@
                 </div>
 
                 <h3>Hezkuntzako Esku-hartzea</h3>
-
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
                     <div class="form-group">
                         <label>Esku-hartze mota:</label>
@@ -329,7 +282,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Kasuan uneko egoera:</label>
+                        <label>Egoera:</label>
                         <select id="form-status">
                             <option value="Aktibo">Aktibo</option>
                             <option value="Jarraipenean">Jarraipenean</option>
@@ -339,7 +292,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Hartutako neurriak (IDU, egokitzapenak, indargarriak...):</label>
+                    <label>Hartutako neurriak (IDU, egokitzapenak...):</label>
                     <textarea id="txt-neurriak" oninput="countWords(this, 'c-neurriak')"></textarea>
                     <div class="word-counter"><span id="c-neurriak">0</span> / 100 hitz</div>
                 </div>
@@ -351,19 +304,17 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Koordinazioa (familia, Tutorea, PT, ALE, kanpo-zerbitzuak...):</label>
+                    <label>Koordinazioa (Familia, PT, ALE...):</label>
                     <textarea id="txt-koordinazioa" oninput="countWords(this, 'c-koordinazioa')"></textarea>
                     <div class="word-counter"><span id="c-koordinazioa">0</span> / 100 hitz</div>
                 </div>
 
                 <div class="form-group">
-                    <label>Baliabide pertsonalak (behar adina hautatu):</label>
-                    <div class="checkbox-group" id="resources-checkboxes">
-                        </div>
+                    <label>Baliabide pertsonalak:</label>
+                    <div class="checkbox-group" id="resources-checkboxes"></div>
                 </div>
 
-                <h3>Jarraipena eta Oharrak</h3>
-
+                <h3>Jarraipena</h3>
                 <div class="form-group">
                     <label>Ikaslearen bilakaera:</label>
                     <textarea id="txt-bilakaera" oninput="countWords(this, 'c-bilakaera')"></textarea>
@@ -382,8 +333,8 @@
                         <input type="date" id="form-review-date">
                     </div>
                     <div class="form-group">
-                        <label>Hurrengo urratsa:</label>
-                        <input type="text" id="form-next-step" placeholder="Adib: Batzordea deitu...">
+                        <label>HUrrengo urratsa:</label>
+                        <input type="text" id="form-next-step">
                     </div>
                 </div>
 
@@ -393,16 +344,16 @@
                     <div class="word-counter"><span id="c-oharrak">0</span> / 100 hitz</div>
                 </div>
 
-                <button type="button" class="btn btn-success" style="font-size: 24px;" onclick="saveRecord()">3. ERREGISTROA GORDE</button>
+                <button type="button" class="btn btn-success" onclick="saveRecord()">Gorde Erregistroa</button>
             </form>
 
             <hr style="margin: 50px 0;">
 
             <div id="zerrenda-section">
-                <h2>4. Erregistroen Zerrenda</h2>
+                <h2>Erregistroen Zerrenda</h2>
                 <div class="filters">
                     <div>
-                        <label style="font-size:16px;">Egoera:</label>
+                        <label>Egoera:</label>
                         <select id="filter-status" onchange="renderRecords()">
                             <option value="Guztiak">Guztiak</option>
                             <option value="Aktibo">Aktibo</option>
@@ -411,7 +362,7 @@
                         </select>
                     </div>
                     <div>
-                        <label style="font-size:16px;">Baliabide pertsonala:</label>
+                        <label>Baliabidea:</label>
                         <select id="filter-resource" onchange="renderRecords()">
                             <option value="Guztiak">Guztiak</option>
                             <option value="PT">PT</option>
@@ -421,32 +372,26 @@
                         </select>
                     </div>
                 </div>
-
-                <div id="records-container">
-                    </div>
+                <div id="records-container"></div>
             </div>
 
             <hr style="margin: 50px 0;">
 
-            <div id="txosten-section" style="background: #fff; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
-                <h2>5. Dokumentu Profesionala Sortzea</h2>
-                <p style="font-size:16px; color:#555;">Hautatu goiko zerrendako erregistro baten "Ikusi" botoia datuak kargatzeko, eta ondoren sakatu beheko botoia testu sakon eta garatu bat sortzeko.</p>
-                <button type="button" class="btn btn-primary" style="width: 100%; font-size: 22px;" onclick="generateReport()">BOTOI GAKOA: SORTU TXOSTENA</button>
-
+            <div id="txosten-section">
+                <h2>Dokumentu Profesionala Sortzea</h2>
+                <button type="button" class="btn btn-primary" style="width: 100%;" onclick="generateReport()">SORTU TXOSTENA</button>
                 <div id="report-container" style="display: none; margin-top: 20px;">
-                    <h3>6. TXOSTENAREN IRTEERA (Itsasteko Prest)</h3>
+                    <h3>Txostenaren Irteera</h3>
                     <button class="btn btn-warning" onclick="copyReport()">TXOSTENA KOPIATU</button>
                     <div id="report-text" class="report-output"></div>
                 </div>
             </div>
-
         </div>
     </div>
 
-    <div id="toast-message" class="toast">Erregistroa behar bezala gorde da!</div>
+    <div id="toast-message" class="toast">Erregistroa ondo gorde da!</div>
 
     <script>
-        // Datuen zerrenda gisa erabiliko diren premiak
         const premiak = [
             "Ikusmen-desgaitasuna", "Entzumen-desgaitasuna", "Adimen-desgaitasuna", "Desgaitasun motorra",
             "Heldutasunean atzerapena", "Adimen Gaitasun Handiak (AGH)", "Berandu eskolaratua",
@@ -460,60 +405,65 @@
 
         const baliabideakLista = ["PT", "ALE", "Fisioa", "Hezitzailea", "Zeinu-hizkuntzako interpretea", "Logopeda (LH)"];
         let unekoErabiltzailea = "";
-        let kargatutakoKasuId = null;
 
-        // Hasieratzea
         window.onload = function() {
-            // Data eremuak gaurko datarekin bete
-            const gaur = new Date().toISOString().split('T')[0];
-            document.getElementById('form-date').value = gaur;
-            document.getElementById('form-review-date').value = gaur;
-            document.getElementById('form-birth').value = "2015-01-01";
+            try {
+                const gaur = new Date().toISOString().split('T')[0];
+                document.getElementById('form-date').value = gaur;
+                document.getElementById('form-review-date').value = gaur;
+                document.getElementById('form-birth').value = "2015-01-01";
 
-            // Desplegableak bete
-            const p1 = document.getElementById('form-p1');
-            const p2 = document.getElementById('form-p2');
-            p1.innerHTML = '<option value="">Hautatu bat...</option>';
-            p2.innerHTML = '<option value="Ez dakar">Ez dakar</option>';
-            
-            premiak.forEach(p => {
-                p1.innerHTML += `<option value="${p}">${p}</option>`;
-                p2.innerHTML += `<option value="${p}">${p}</option>`;
-            });
+                const p1 = document.getElementById('form-p1');
+                const p2 = document.getElementById('form-p2');
+                p1.innerHTML = '<option value="">Hautatu bat...</option>';
+                p2.innerHTML = '<option value="Ez dakar">Ez dakar</option>';
+                
+                premiak.forEach(p => {
+                    p1.innerHTML += `<option value="${p}">${p}</option>`;
+                    p2.innerHTML += `<option value="${p}">${p}</option>`;
+                });
 
-            // Checkboxak bete
-            const cbGroup = document.getElementById('resources-checkboxes');
-            baliabideakLista.forEach(b => {
-                cbGroup.innerHTML += `
-                    <div class="checkbox-item">
-                        <input type="checkbox" name="res-cb" value="${b}" id="cb-${b}">
-                        <label for="cb-${b}" style="margin:0; font-size:18px;">${b}</label>
-                    </div>`;
-            });
+                const cbGroup = document.getElementById('resources-checkboxes');
+                cbGroup.innerHTML = "";
+                
+                // Konponduta: ID garbiak sortu zenbakien bidez akatsak ekiditeko
+                baliabideakLista.forEach((b, index) => {
+                    cbGroup.innerHTML += `
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="res-cb" value="${b}" id="cb-res-${index}">
+                            <label for="cb-res-${index}" style="margin:0; font-size:18px;">${b}</label>
+                        </div>`;
+                });
 
-            // Begiratu session lehendik zegoen
-            const gordetakoUser = localStorage.getItem('current_orientatzaile');
-            if(gordetakoUser) {
-                unekoErabiltzailea = gordetakoUser;
-                pantailazAldatu('screen-main');
-                aplikazioaEgokitu();
+                const gordetakoUser = localStorage.getItem('current_orientatzaile');
+                if(gordetakoUser) {
+                    unekoErabiltzailea = gordetakoUser;
+                    pantailazAldatu('screen-main');
+                    aplikazioaEgokitu();
+                }
+            } catch (e) {
+                console.error("Errorea hasieratzean:", e);
             }
         };
 
         function login() {
             const izena = document.getElementById('login-name').value.trim();
             if(!izena) {
-                alert("Mesedez, sartu Nick edo izen bat jarraitzeko.");
+                alert("Sartu Nick bat mesedez.");
                 return;
             }
             unekoErabiltzailea = izena;
-            localStorage.setItem('current_orientatzaile', izena);
+            try {
+                localStorage.setItem('current_orientatzaile', izena);
+            } catch(e) {
+                console.warn("LocalStorage ez dago erabilgarri, saioa memorian mantenduko da.");
+            }
             pantailazAldatu('screen-main');
             aplikazioaEgokitu();
         }
 
         function logout() {
-            localStorage.removeItem('current_orientatzaile');
+            try { localStorage.removeItem('current_orientatzaile'); } catch(e) {}
             unekoErabiltzailea = "";
             document.getElementById('login-name').value = "";
             pantailazAldatu('screen-login');
@@ -522,11 +472,8 @@
         }
 
         function goHome() {
-            if(unekoErabiltzailea) {
-                pantailazAldatu('screen-main');
-            } else {
-                pantailazAldatu('screen-login');
-            }
+            if(unekoErabiltzailea) pantailazAldatu('screen-main');
+            else pantailazAldatu('screen-login');
         }
 
         function pantailazAldatu(id) {
@@ -541,33 +488,22 @@
             renderRecords();
         }
 
-        // Hitz kontagailu eta kontrola (Max 100 hitz)
         function countWords(textarea, counterId) {
             let text = textarea.value.trim();
             let words = text === "" ? [] : text.split(/\s+/);
-            
             if (words.length > 100) {
-                // Moztu testua 100 hitzetan
-                const moztutakoTestua = words.slice(0, 100).join(" ");
-                textarea.value = moztutakoTestua;
-                words = moztutakoTestua.split(/\s+/);
+                const moztu = words.slice(0, 100).join(" ");
+                textarea.value = moztu;
+                words = moztu.split(/\s+/);
             }
-            
             document.getElementById(counterId).innerText = words.length;
         }
 
-        // Alerta maila handia bada
         function checkSupportLevel() {
             const level = document.getElementById('form-support').value;
-            const alertDiv = document.getElementById('support-alert');
-            if(level === 'handia' || level === 'oso handia') {
-                alertDiv.style.display = "block";
-            } else {
-                alertDiv.style.display = "none";
-            }
+            document.getElementById('support-alert').style.display = (level === 'handia' || level === 'oso handia') ? "block" : "none";
         }
 
-        // GORDE ERREGISTROA
         function saveRecord() {
             const id = document.getElementById('form-id').value.trim();
             const eskola = document.getElementById('form-school').value.trim();
@@ -575,57 +511,38 @@
             const premia = document.getElementById('form-p1').value;
 
             if(!id || !eskola || !etapa || !premia) {
-                alert("Mesedez, bete nahitaezko eremuak (*): Kodea, Ikastetxea, Etapa eta Premia Nagusia.");
+                alert("Bete nahitaezko eremuak (*)");
                 return;
             }
 
-            // Baliabide hautatuak jaso
             let hautatutakoBaliabideak = [];
             document.querySelectorAll('input[name="res-cb"]:checked').forEach(cb => {
                 hautatutakoBaliabideak.push(cb.value);
             });
 
             const kasua = {
-                id: id,
-                user: unekoErabiltzailea,
-                data: document.getElementById('form-date').value,
-                eskola: eskola,
-                etapa: etapa,
-                jaiotza: document.getElementById('form-birth').value,
-                medikoa: document.getElementById('form-medical').value,
-                p1: premia,
-                p2: document.getElementById('form-p2').value,
-                laguntza: document.getElementById('form-support').value,
-                beharra: document.getElementById('txt-beharra').value,
-                oztopoak: document.getElementById('txt-oztopoak').value,
-                indarguneak: document.getElementById('txt-indarguneak').value,
-                interbideMota: document.getElementById('form-intervention-type').value,
-                egoera: document.getElementById('form-status').value,
-                neurriak: document.getElementById('txt-neurriak').value,
-                baliabideak: document.getElementById('txt-baliabideak').value,
-                koordinazioa: document.getElementById('txt-koordinazioa').value,
-                baliabidePertsonalak: hautatutakoBaliabideak,
-                bilakaera: document.getElementById('txt-bilakaera').value,
-                erantzuna: document.getElementById('txt-erantzuna').value,
-                berrikuspena: document.getElementById('form-review-date').value,
-                urratsa: document.getElementById('form-next-step').value,
+                id: id, user: unekoErabiltzailea, data: document.getElementById('form-date').value,
+                eskola: eskola, etapa: etapa, jaiotza: document.getElementById('form-birth').value,
+                medikoa: document.getElementById('form-medical').value, p1: premia, p2: document.getElementById('form-p2').value,
+                laguntza: document.getElementById('form-support').value, beharra: document.getElementById('txt-beharra').value,
+                oztopoak: document.getElementById('txt-oztopoak').value, indarguneak: document.getElementById('txt-indarguneak').value,
+                interbideMota: document.getElementById('form-intervention-type').value, egoera: document.getElementById('form-status').value,
+                neurriak: document.getElementById('txt-neurriak').value, baliabideak: document.getElementById('txt-baliabideak').value,
+                koordinazioa: document.getElementById('txt-koordinazioa').value, baliabidePertsonalak: hautatutakoBaliabideak,
+                bilakaera: document.getElementById('txt-bilakaera').value, erantzuna: document.getElementById('txt-erantzuna').value,
+                berrikuspena: document.getElementById('form-review-date').value, urratsa: document.getElementById('form-next-step').value,
                 oharrak: document.getElementById('txt-oharrak').value
             };
 
-            // Irakurri lehendik daudenak
-            let denak = JSON.parse(localStorage.getItem('orientazio_kasuak')) || [];
+            let denak = [];
+            try { denak = JSON.parse(localStorage.getItem('orientazio_kasuak')) || []; } catch(e) {}
             
-            // Berria den edo editatzen ari garen ikusi
             const index = denak.findIndex(k => k.id === id && k.user === unekoErabiltzailea);
-            if(index > -1) {
-                denak[index] = kasua; // Eguneratu
-            } else {
-                denak.push(kasua); // Gehitu berria
-            }
+            if(index > -1) denak[index] = kasua;
+            else denak.push(kasua);
 
-            localStorage.setItem('orientazio_kasuak', JSON.stringify(denak));
+            try { localStorage.setItem('orientazio_kasuak', JSON.stringify(denak)); } catch(e) {}
             
-            // Erakutsi mezua
             const toast = document.getElementById('toast-message');
             toast.style.display = "block";
             setTimeout(() => { toast.style.display = "none"; }, 3000);
@@ -633,57 +550,46 @@
             renderRecords();
         }
 
-        // MARRAZTU ERREGISTROEN ZERRENDA FILTROEKIN
         function renderRecords() {
             const container = document.getElementById('records-container');
             container.innerHTML = "";
-
             const fStatus = document.getElementById('filter-status').value;
             const fResource = document.getElementById('filter-resource').value;
 
-            let denak = JSON.parse(localStorage.getItem('orientazio_kasuak')) || [];
-            
-            // Iragazi erabiltzailearen arabera soilik (Pribatutasuna gailuan)
+            let denak = [];
+            try { denak = JSON.parse(localStorage.getItem('orientazio_kasuak')) || []; } catch(e) {}
             let nireak = denak.filter(k => k.user === unekoErabiltzailea);
 
-            // Filtroak aplikatu
             if(fStatus !== "Guztiak") nireak = nireak.filter(k => k.egoera === fStatus);
-            if(fResource !== "Guztiak") nireak = nireak.filter(k => k.baliabidePertsonalak.includes(fResource) || (fResource === "PT" && k.baliabidePertsonalak.some(b => b.includes("PT"))));
+            if(fResource !== "Guztiak") nireak = nireak.filter(k => k.baliabidePertsonalak.includes(fResource));
 
             if(nireak.length === 0) {
-                container.innerHTML = "<p style='font-size:18px; color: #7f8c8d;'>Ez da erregistrorik aurkitu irizpide hauekin.</p>";
+                container.innerHTML = "<p style='font-size:18px; color: #7f8c8d;'>Ez dago erregistrorik.</p>";
                 return;
             }
 
             nireak.forEach(k => {
                 const alertaMota = (k.laguntza === 'handia' || k.laguntza === 'oso handia') ? 'style="border-left: 7px solid #e74c3c; background: #fff5f5;"' : '';
-                
                 container.innerHTML += `
                     <div class="record-card" ${alertaMota}>
                         <div>
-                            <strong>Kodea: ${k.id}</strong> - ${k.etapa}<br>
-                            <span style="font-size:16px; color:#555;">Premia: ${k.p1} | Egoera: <strong>${k.egoera}</strong></span><br>
-                            <span style="font-size:14px; color:#7f8c8d;">Baliabideak: ${k.baliabidePertsonalak.join(", ") || "Bat ere ez"}</span>
+                            <strong>ID: ${k.id}</strong> - ${k.etapa}<br>
+                            <span style="font-size:16px;">Premia: ${k.p1} | <strong>${k.egoera}</strong></span>
                         </div>
                         <div style="display:flex; gap:10px;">
-                            <button class="btn btn-warning" style="font-size:16px; padding:8px 15px;" onclick="loadRecord('${k.id}')">Ikusi / Editatu</button>
-                            <button class="btn btn-danger" style="font-size:16px; padding:8px 15px;" onclick="deleteRecord('${k.id}')">Ezabatu</button>
+                            <button class="btn btn-warning" style="font-size:16px; padding:8px 15px;" onclick="loadRecord('${k.id}')">Ikusi</button>
+                            <button class="btn btn-danger" style="font-size:16px; padding:8px 15px;" onclick="deleteRecord('${k.id}')">X</button>
                         </div>
-                    </div>
-                `;
+                    </div>`;
             });
         }
 
-        // KARGATU KASU BAT FORMULARIOAN EDITATZEKO / TXOSTENA SORTZEKO
         function loadRecord(id) {
-            let denak = JSON.parse(localStorage.getItem('orientazio_kasuak')) || [];
+            let denak = [];
+            try { denak = JSON.parse(localStorage.getItem('orientazio_kasuak')) || []; } catch(e) {}
             const k = denak.find(kasu => kasu.id === id && kasu.user === unekoErabiltzailea);
-            
             if(!k) return;
 
-            kargatutakoKasuId = k.id;
-            
-            // Bete eremu guztiak
             document.getElementById('form-id').value = k.id;
             document.getElementById('form-date').value = k.data;
             document.getElementById('form-school').value = k.eskola;
@@ -693,18 +599,15 @@
             document.getElementById('form-p1').value = k.p1;
             document.getElementById('form-p2').value = k.p2;
             document.getElementById('form-support').value = k.laguntza;
-            
             document.getElementById('txt-beharra').value = k.beharra;
             document.getElementById('txt-oztopoak').value = k.oztopoak;
             document.getElementById('txt-indarguneak').value = k.indarguneak;
-            
             document.getElementById('form-intervention-type').value = k.interbideMota;
             document.getElementById('form-status').value = k.egoera;
             document.getElementById('txt-neurriak').value = k.neurriak;
             document.getElementById('txt-baliabideak').value = k.baliabideak;
             document.getElementById('txt-koordinazioa').value = k.koordinazioa;
             
-            // Checkboxak garbitu eta markatu
             document.querySelectorAll('input[name="res-cb"]').forEach(cb => {
                 cb.checked = k.baliabidePertsonalak.includes(cb.value);
             });
@@ -715,110 +618,54 @@
             document.getElementById('form-next-step').value = k.urratsa;
             document.getElementById('txt-oharrak').value = k.oharrak;
 
-            // Kontagailuak berrabiarazi
-            const textareas = ['beharra', 'oztopoak', 'indarguneak', 'neurriak', 'baliabideak', 'koordinazioa', 'bilakaera', 'erantzuna', 'oharrak'];
-            textareas.forEach(t => countWords(document.getElementById('txt-' + t), 'c-' + t));
-
+            const fields = ['beharra', 'oztopoak', 'indarguneak', 'neurriak', 'baliabideak', 'koordinazioa', 'bilakaera', 'erantzuna', 'oharrak'];
+            fields.forEach(f => countWords(document.getElementById('txt-' + f), 'c-' + f));
             checkSupportLevel();
-            
-            // Egin scroll leun bat gora formularioa ikusteko
             window.scrollTo({top: 200, behavior: 'smooth'});
         }
 
         function deleteRecord(id) {
-            if(!confirm(`Ziur zaude ${id} kodedun erregistroa ezabatu nahi duzula? Ekintza hau ezin da desegin.`)) return;
-            
-            let denak = JSON.parse(localStorage.getItem('orientazio_kasuak')) || [];
+            if(!confirm("Ziur zaude ezabatu nahi duzula?")) return;
+            let denak = [];
+            try { denak = JSON.parse(localStorage.getItem('orientazio_kasuak')) || []; } catch(e) {}
             denak = denak.filter(k => !(k.id === id && k.user === unekoErabiltzailea));
-            localStorage.setItem('orientazio_kasuak', JSON.stringify(denak));
+            try { localStorage.setItem('orientazio_kasuak', JSON.stringify(denak)); } catch(e) {}
             renderRecords();
         }
 
-        // BOTOI GAKOA: TXOSTEN PROFESIONAL SAKONA SORTZEA
         function generateReport() {
             const id = document.getElementById('form-id').value;
-            if(!id) {
-                alert("Mesedez, hautatu edo gorde lehenik erregistro bat txostena sortu ahal izateko.");
-                return;
-            }
+            if(!id) { alert("Hautatu edo gorde kasu bat lehenik."); return; }
 
-            // Jaso formularioaren uneko datuak (nahiz eta gorde gabe egon, idazten ari dena aprobetxatzeko)
             const prof = document.getElementById('form-prof').value;
             const eskola = document.getElementById('form-school').value;
             const etapa = document.getElementById('form-stage').value;
             const p1 = document.getElementById('form-p1').value;
             const p2 = document.getElementById('form-p2').value;
             const laguntza = document.getElementById('form-support').value;
-            const medikoa = document.getElementById('form-medical').value;
             
-            const beharra = document.getElementById('txt-beharra').value || "(Ez da zehaztu testu-kutxan)";
-            const oztopoak = document.getElementById('txt-oztopoak').value || "(Ez dira zehaztu testu-kutxan)";
-            const indarguneak = document.getElementById('txt-indarguneak').value || "(Ez dira zehaztu testu-kutxan)";
-            const neurriak = document.getElementById('txt-neurriak').value || "(Ez dira zehaztu testu-kutxan)";
-            const baliabideak = document.getElementById('txt-baliabideak').value || "(Ez dira zehaztu testu-kutxan)";
-            const koordinazioa = document.getElementById('txt-koordinazioa').value || "(Ez da zehaztu testu-kutxan)";
-            const bilakaera = document.getElementById('txt-bilakaera').value || "(Ez da zehaztu testu-kutxan)";
-            const egoera = document.getElementById('form-status').value;
-            const urratsa = document.getElementById('form-next-step').value || "Hurrengo berrikuspen-datan ebaluatzea.";
+            const beharra = document.getElementById('txt-beharra').value || "Ez da xehetasunik eman.";
+            const oztopoak = document.getElementById('txt-oztopoak').value || "Ez da oztoporik zehaztu.";
+            const indarguneak = document.getElementById('txt-indarguneak').value || "Ez da indargunerik zehaztu.";
+            const neurriak = document.getElementById('txt-neurriak').value || "Neurri arruntak.";
+            const koordinazioa = document.getElementById('txt-koordinazioa').value || "Barne koordinazioa.";
+            const bilakaera = document.getElementById('txt-bilakaera').value || "Ebaluatzeke.";
 
-            let pertsonalak = [];
-            document.querySelectorAll('input[name="res-cb"]:checked').forEach(cb => pertsonalak.push(cb.value));
-            const baliabidePertsonal Testua = pertsonalak.length > 0 ? pertsonalak.join(", ") : "baliabide espezifiko gehigarririk gabe uneko unean";
+            let txostena = `HEZKUNTZA-ORIENTAZIOKO TXOSTEN PROFESIONALA\n=========================================\n\n`;
+            txostena += `1. TESTUINGURUA: ${eskola} ikastetxean, ${etapa} mailan eskolatutako "${id}" kodedun ikaslearen jarraipena egin du ${prof} orientatzaileak.\n\n`;
+            txostena += `2. PREMIAK: Ikasleak uneko unean "${p1}" premia nagusia erakusten du (Bigarren mailakoa: ${p2}). Behar den laguntza maila ${laguntza.toUpperCase()} da.\n\n`;
+            txostena += `Xehetasunak:\n> Beharra: ${beharra}\n> Oztopoak: ${oztopoak}\n> Indarguneak: ${indarguneak}\n\n`;
+            txostena += `3. ESKU-HARTZEA ETA NEURRIAK:\n> Planifikazioa: ${neurriak}\n> COordinazio-lana: ${koordinazioa}\n\n`;
+            txostena += `4. BILAKAERA ETA PROPOSAMENA:\n> Bilakaeraren analisia: ${bilakaera}\n> Hurrengo urratsa: ${document.getElementById('form-next-step').value || 'Jarraipena egitea.'}\n`;
+            txostena += `Berrikuspen data: ${document.getElementById('form-review-date').value}\n\nTxosten ofiziala. Data: ${document.getElementById('form-date').value}`;
 
-            // SAKONTASUNEKO TESTUAREN SORKUNTZA (Garatua eta formala)
-            let txostena = `HEZKUNTZA-ORIENTAZIOKO TXOSTEN PROFESIONALA ETA SAKONA\n`;
-            txostena += `================================================================\n\n`;
-            txostena += `1. PROFESIONAL ARDURADUNA ETA TESTUINGURUA\n`;
-            txostena += `----------------------------------------------------------------\n`;
-            txostena += `Txosten hau ${eskola} ikastetxeko Orientazio Sailak bultzatu eta bideratu du. Kasuaren azterketa eta jarraipenaren arduradun profesional nagusia ${prof} hezkuntza-orientatzailea da. Aztertutako ikaslea uneko unean ${etapa} mailan eskolatuta dago, eta haren kasua identifikatzeko erabilitako kode konfidentziala eta ofiziala "${id}" da.\n\n`;
-
-            txostena += `2. HEZKUNTZA-PREMIA MOTA ETA DESKRIBAPENA\n`;
-            txostena += `----------------------------------------------------------------\n`;
-            txostena += `Egindako ebaluazioen ondorioz, ikasleak ezaugarri zehatz batzuen araberako arreta eskatzen du. Diagnostiko profesional nagusi gisa "${p1}" hauteman da. Horrez gain, egoeraren konplexutasuna dela eta, bigarren mailako premia gisa honako hau adierazi da: "${p2}". Osasun edo medikuntza arloari dagokionez, kasuak txosten mediko ofizialaren babesa duela egiaztatu da: ${medikoa}.\n\n`;
-            txostena += `Ikasle honek behar duen laguntza-intensitatea, hezkuntza-testuinguru orokorrean, "${laguntza.toUpperCase()}" bezala sailkatu da. Sailkapen honek argi uzten du esku-hartzeen maiztasuna eta sakontasuna egokitu behar direla ikaslearen eskolaratze egokia bermatzeko. Orientatzaileak zehaztutako behar zehatzak honako hauek dira:\n> ${beharra}\n\n`;
-
-            txostena += `3. ANTZEMANDAKO OZTOPOAK ETA IKASLEAREN INDARGUNEAK\n`;
-            txostena += `----------------------------------------------------------------\n`;
-            txostena += `Ikaskuntza-prozesuan eta ingurunearekiko elkarrekintzan, ikasleak muga eta oztopo zehatzak aurkitzen ditu bere egunerokoan, curriculumera iristeko aukerak zailtzen dituztenak. Hain zuzen ere, honako oztopo hauek deskribatu dira formalki:\n> ${oztopoak}\n\n`;
-            txostena += `Hala eta guztiz ere, hezkuntza-esku-hartze inklusibo baten oinarria ikaslearen gaitasunak sustatzea denez, alderdi indartsuak eta eremu positiboak azpimarratu dira. Indargune hauek palanka gisa erabiliko dira arrakasta akademiko eta pertsonala lortzeko:\n> ${indarguneak}\n\n`;
-
-            txostena += `4. APLIKATUTAKO ESKU-HARTZEAK ETA BALIABIDEAK\n`;
-            txostena += `----------------------------------------------------------------\n`;
-            txostena += `Ikaslearen erantzun akademikoa eta emozionala optimizatzeko helburuarekin, izaera "${interbideMota}" duten ekintzak eta neurriak jarri dira martxan. Zentzu honetan, Diseinu Unibertsala (IDU), egokitzapen curricularrak eta indartze-neurri zehatzak aplikatu dira, jarraian zehazten den moduan:\n> ${neurriak}\n\n`;
-            txostena += `Neurri hauek aurrera eramateko, ikastetxeak material, espazio eta antolaketa-baliabide ugari jarri ditu ikaslearen eskura, prozesua egonkortzeko: \n> ${baliabideak}\n\n`;
-            txostena += `Giza baliabideei dagokienez, eta kasuaren premia-mailari erantzunez, ezinbestekoa izan da profil espezifiko hauen esku-hartze zuzena eta koordinatua bermatzea: ${baliabidePertsonalTestua}.\n\n`;
-
-            txostena += `5. KOORDINAZIO BILERAK ETA SENTIKORTASUNA\n`;
-            txostena += `----------------------------------------------------------------\n`;
-            txostena += `Tresna honen oinarrizko zutabea eragile desberdinen arteko sare-lana da. Ikaslearen jarraipena modu holistikoan egiteko, aldizkako bilerak eta akordioak mantentzen dira familiekin, gelako tutorearekin, irakasle espezifikoekin (PT, ALE) eta, beharrezkoa denean, kanpoko osasun edo gizarte zerbitzuekin. Koordinazio gune horien xehetasunak honako hauek dira:\n> ${koordinazioa}\n\n`;
-
-            txostena += `6. IKASLEAREN BILAKAERA ETA EGUNGO EGOERA\n`;
-            txostena += `----------------------------------------------------------------\n`;
-            txostena += `Azken ebaluazio-aldian zehar, ikasleak ezarritako neurrien aurrean erakutsitako erantzuna eta haren garapen akademiko zein soziala arretaz aztertu da. Bilakaeraren narrazio profesionalak honako bidea erakusten du:\n> ${bilakaera}\n\n`;
-            txostena += `Une honetan, kasuaren administrazio- eta hezkuntza-egoera ofiziala "${egoera.toUpperCase()}" da. Ikasleak erakutsitako erantzun espezifikoa honela laburbiltzen da:\n> ${document.getElementById('txt-erantzuna').value || 'Ebaluazio prozesuan.'}\n\n`;
-
-            txostena += `7. JARDUKETARAKO PROPOSAMENA ETA HURRENGO URRATSA\n`;
-            txostena += `----------------------------------------------------------------\n`;
-            txostena += `Epe labur eta ertainera begira, eta jasotako ebidentzia guztietan oinarrituta, Orientazio Sailak ekintza-planarekin jarraitzea proposatzen du, hurrengo urrats zehatz hau lehenetsiz: "${urratsa}". Prozesuaren egokitasuna bermatzeko, kasu honen berrikuspen data ofiziala honako egun honetarako ezarri da: ${document.getElementById('form-review-date').value}.\n\n`;
-            txostena += `Ohar osagarriak:\n${document.getElementById('txt-oharrak').value || 'Ez dago ohar gehigarririk.'}\n\n`;
-            txostena += `Sinadura eta Data: ${document.getElementById('form-date').value} - Orientazio Saila.`;
-
-            // Erakutsi testua
             document.getElementById('report-text').innerText = txostena;
             document.getElementById('report-container').style.display = "block";
-            
-            // Scroll txostenera
-            document.getElementById('txosten-section').scrollIntoView({behavior: 'smooth'});
         }
 
-        // TXOSTENA KOPIATU ARBELEAN (CLIPBOARD)
         function copyReport() {
-            const text = document.getElementById('report-text').innerText;
-            navigator.clipboard.writeText(text).then(() => {
-                alert("Txosten profesionala arbelean kopiatu da! Zure dokumentu ofizialean (Word, Writer...) itsatsi dezakezu orain (Ctrl+V).");
-            }).catch(err => {
-                alert("Ezin izan da automatikoki kopiatu, mesedez hautatu testua eskuz eta kopiatu.");
-            });
+            navigator.clipboard.writeText(document.getElementById('report-text').innerText);
+            alert("Kopiatu da!");
         }
     </script>
 </body>
