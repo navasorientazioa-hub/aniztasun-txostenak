@@ -164,3 +164,70 @@
     <div class="container">
         <div id="screen-login" class="screen active">
             <h2>Ongi etorri orientazio aplikaziora</h2>
+            <p style="font-size: 18px; color: #7f8c8d;">Datu guztiak zure gailuan bakarrik gordetzen dira modu pribatuan (LocalStorage).</p>
+            <div class="form-group">
+                <label for="login-name">Orientatzailearen izena (Nick bat): *</label>
+                <input type="text" id="login-name" placeholder="Adibidez: miren_orientatzaile">
+            </div>
+            <button class="btn btn-primary" onclick="login()">Sartu</button>
+        </div>
+
+        <div id="screen-main" class="screen">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 15px;">
+                <h2>HPB/HBLP erregistro formularioa</h2>
+                <a href="#zerrenda-section" class="btn btn-warning" style="text-decoration: none;">Ikusi erregistroak</a>
+            </div>
+
+            <form id="case-form">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label>Data (Urtea/Hilea/Eguna):</label>
+                        <input type="date" id="form-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Profesionala:</label>
+                        <input type="text" id="form-prof" readonly style="background: #eee;">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label>Ikastetxea: *</label>
+                        <input type="text" id="form-school" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Etapa / maila: *</label>
+                        <select id="form-stage" required>
+                            <option value="">Hautatu bat...</option>
+                            <option value="Derrigorrezko Bigarren Hezkuntza (DBH)">DBH</option>
+                            <option value="Oinarrizko Lanbide Heziketa">Oinarrizko LH</option>
+                            <option value="Erdi-mailako Lanbide Heziketa">Erdi-mailako LH</option>
+                            <option value="Goi-mailako Lanbide Heziketa">Goi-mailako LH</option>
+                            <option value="Batxilergoa">Batxilergoa</option>
+                            <option value="Gela Egonkorra">Gela Egonkorra</option>
+                            <option value="ZIG Gela">ZIG Gela</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label>Kasuaren kodea / ID: *</label>
+                        <input type="text" id="form-id" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Jaioteguna:</label>
+                        <input type="date" id="form-birth">
+                    </div>
+                    <div class="form-group">
+                        <label>Txosten medikoa?</label>
+                        <select id="form-medical">
+                            <option value="Ez">Ez</option>
+                            <option value="Bai">Bai</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: #eef7fa; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+                    <div class="form-group">
+                        <label>Premia nag
